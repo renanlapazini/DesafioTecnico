@@ -1,0 +1,2 @@
+class CallCost < ApplicationRecord
+end
