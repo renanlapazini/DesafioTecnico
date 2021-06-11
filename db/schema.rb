@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_220830) do
+ActiveRecord::Schema.define(version: 2021_06_11_222918) do
 
   create_table "call_costs", force: :cascade do |t|
     t.string "origin"
     t.string "receiver"
     t.float "price", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "name"
+    t.float "price", default: 0.0
+    t.integer "minutes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
