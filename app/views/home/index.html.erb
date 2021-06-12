@@ -1,66 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      DDD Origem
-    </div>
-    <div class="col">
-      DDD Destino
-    </div>
-    <div class="col">
-      Minutos
-    </div>
-    <div class="col">
-      Plano
-    </div>
-    <div class="col">
-      Custo sem o plano
-    </div>
-    <div class="col">
-      Custo com o plano
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-2">
-      <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1">
-          <% @all_origins.each do |origin| %>
-            <option><%= origin %></option>
-          <% end %>
-        </select>
+  <%= form_tag calculate_cost_home_index_path, method: :get, remote: true do %>
+    <div class="row">
+      <div class="col">
+        DDD Origem
+      </div>
+      <div class="col">
+        DDD Destino
+      </div>
+      <div class="col">
+        Minutos
+      </div>
+      <div class="col">
+        Plano
+      </div>
+      <div class="col">
+        Custo sem o plano
+      </div>
+      <div class="col">
+        Custo com o plano
       </div>
     </div>
-    <div class="col-2">
-      <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1">
-          <% @all_receivers.each do |receiver| %>
-            <option><%= receiver %></option>
-          <% end %>
-        </select>
-      </div>
+    <div class="row js--calculate">
+      <%= render "form", with_plan: @cost_with_plan,
+                         without_plan: @cost_without_plan %>
     </div>
-    <div class="col-2">
-      <div class="form-group">
-        <input type="number" class="form-control">
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1">
-          <% @all_plans.each do |plan| %>
-            <option><%= plan %></option>
-          <% end %>
-        </select>  
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="form-group">
-        <input type="text" class="form-control">
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="form-group">
-        <input type="text" class="form-control">
-      </div>
-    </div>
-  </div>
+    
+    <%= button_tag type: :submit, class: 'btn btn-info' do %>
+      Calcular
+    <% end %>
+  <% end %>
 </div>

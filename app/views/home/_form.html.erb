@@ -1,0 +1,26 @@
+<div class="col-2">
+  <div class="form-group">
+    <%= select_tag :origin, options_for_select(@all_origins), class: "form-control" %>
+  </div>
+</div>
+<div class="col-2">
+  <%= select_tag :receiver, options_for_select(@all_receivers), class: "form-control" %>
+</div>
+<div class="col-2">
+  <div class="form-group">
+    <%= number_field_tag :minutes, "", class: "form-control", required: true %>
+  </div>
+</div>
+<div class="col-2">
+  <%= select_tag :plan, options_for_select(@all_plans), class: "form-control" %>
+</div>
+<div class="col-2">
+  <div class="form-group">
+    <input type="text" class="form-control" value="<%= without_plan %>">
+  </div>
+</div>
+<div class="col-2">
+  <div class="form-group">
+    <input type="text" class="form-control" value="<%= with_plan %>">
+  </div>
+</div>
